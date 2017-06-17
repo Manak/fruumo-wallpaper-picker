@@ -278,6 +278,7 @@ window.fetchWallpaper = function(callback){
 		currentImage = data.id;
 		processing = false;
 		document.getElementsByClassName('wallpaper')[0].style.backgroundImage = "url('"+data.urls.full+"')";
+		document.getElementById('attribution').innerText = data.user.first_name + "/ unsplash";
 	});
 }
 
