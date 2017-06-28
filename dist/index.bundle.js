@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,8 +73,8 @@
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(5);
-exports.encode = exports.stringify = __webpack_require__(6);
+exports.decode = exports.parse = __webpack_require__(6);
+exports.encode = exports.stringify = __webpack_require__(7);
 
 
 /***/ }),
@@ -94,6 +94,12 @@ var OAUTH_TOKEN_URL = exports.OAUTH_TOKEN_URL = "https://unsplash.com/oauth/toke
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109,37 +115,37 @@ exports.toJson = toJson;
 
 var _constants = __webpack_require__(1);
 
-var _utils = __webpack_require__(15);
+var _utils = __webpack_require__(16);
 
-var _auth = __webpack_require__(7);
+var _auth = __webpack_require__(8);
 
 var _auth2 = _interopRequireDefault(_auth);
 
-var _currentUser = __webpack_require__(10);
+var _currentUser = __webpack_require__(11);
 
 var _currentUser2 = _interopRequireDefault(_currentUser);
 
-var _users = __webpack_require__(14);
+var _users = __webpack_require__(15);
 
 var _users2 = _interopRequireDefault(_users);
 
-var _photos = __webpack_require__(11);
+var _photos = __webpack_require__(12);
 
 var _photos2 = _interopRequireDefault(_photos);
 
-var _categories = __webpack_require__(8);
+var _categories = __webpack_require__(9);
 
 var _categories2 = _interopRequireDefault(_categories);
 
-var _collections = __webpack_require__(9);
+var _collections = __webpack_require__(10);
 
 var _collections2 = _interopRequireDefault(_collections);
 
-var _search = __webpack_require__(12);
+var _search = __webpack_require__(13);
 
 var _search2 = _interopRequireDefault(_search);
 
-var _stats = __webpack_require__(13);
+var _stats = __webpack_require__(14);
 
 var _stats2 = _interopRequireDefault(_stats);
 
@@ -188,14 +194,14 @@ function toJson(res) {
 }
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_unsplash_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_unsplash_js__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_unsplash_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_unsplash_js__);
-__webpack_require__(16);
+__webpack_require__(2);
 
 
 const UNSPLASH_API_ID = "798bf61f1ae0321ef02184da2c3ad42c5c0ab2b84561af0e20aa536d2337c051";
@@ -266,7 +272,7 @@ window.getParameterByName = function(name, url) {
 
 window.fetchWallpaper = function(callback){
 	processing = true;
-	fetch("https://api.unsplash.com/photos/random?query=landscape&orientation=landscape&client_id="+UNSPLASH_API_ID+"&w=1920&h=1080&r="+Math.random())
+	fetch( true?getParameterByName("q"):landscape+"&orientation=landscape&client_id="+UNSPLASH_API_ID+"&w=1920&h=1080&r="+Math.random())
 	.then(function(response){
 		if(response.ok)
 			return response.json();
@@ -283,7 +289,7 @@ window.fetchWallpaper = function(callback){
 }
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 // Filename: formurlencoded.js
@@ -351,7 +357,7 @@ var formurlencoded = module.exports = function (data, opts) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -442,7 +448,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -534,7 +540,7 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -596,7 +602,7 @@ function auth() {
 }
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -646,7 +652,7 @@ function categories() {
 }
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -811,7 +817,7 @@ function createUpdateCollection(id, title, description, isPrivate) {
 }
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -872,7 +878,7 @@ function currentUser() {
 }
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1046,7 +1052,7 @@ function photos() {
 }
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1087,7 +1093,7 @@ function searcher(url) {
 }
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1113,7 +1119,7 @@ function stats() {
 }
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1215,7 +1221,7 @@ function users() {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1232,7 +1238,7 @@ exports.buildFetchOptions = buildFetchOptions;
 
 var _querystring = __webpack_require__(0);
 
-var _formUrlencoded = __webpack_require__(4);
+var _formUrlencoded = __webpack_require__(5);
 
 var _formUrlencoded2 = _interopRequireDefault(_formUrlencoded);
 
@@ -1271,12 +1277,6 @@ function buildFetchOptions(options) {
     }
   };
 }
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
