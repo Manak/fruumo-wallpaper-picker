@@ -69,7 +69,7 @@ window.getParameterByName = function(name, url) {
 
 window.fetchWallpaper = function(callback){
 	processing = true;
-	fetch("https://api.unsplash.com/photos/random?query=landscape&orientation=landscape&client_id="+UNSPLASH_API_ID+"&w=1920&h=1080&r="+Math.random())
+	fetch("https://api.unsplash.com/photos/random?query="+getParameterByName("q")?getParameterByName("q"):landscape+"&orientation=landscape&client_id="+UNSPLASH_API_ID+"&w=1920&h=1080&r="+Math.random())
 	.then(function(response){
 		if(response.ok)
 			return response.json();
