@@ -53,7 +53,10 @@ window.onload = function(){
 			fetchWallpaper();
 			processing = false;
 		}
-	})
+	});
+	document.getElementById('search').addEventListener('keyup', function(e){
+		e.stopPropagation();
+	});
 
 }
 
