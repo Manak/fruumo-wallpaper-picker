@@ -69,7 +69,9 @@ window.getParameterByName = function(name, url) {
 
 window.fetchWallpaper = function(callback){
 	processing = true;
-	fetch("https://api.unsplash.com/photos/random?query="+(document.getElementById('search').value!=""?encodeURIComponent(document.getElementById('search').value):"landscape")+"&orientation=landscape&client_id="+UNSPLASH_API_ID+"&w=1920&h=1080&r="+Math.random())
+	var q = encodeURIComponent(document.getElementById('search').value);
+	console.log(q);
+	fetch("https://api.unsplash.com/photos/random?query="+(q!=""?q:"landscape")+"&orientation=landscape&client_id="+UNSPLASH_API_ID+"&w=1920&h=1080&r="+Math.random())
 	.then(function(response){
 		if(response.ok)
 			return response.json();
