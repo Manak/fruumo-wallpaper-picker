@@ -1,8 +1,14 @@
 require('./index.scss');
 import Unsplash, { toJson } from "unsplash-js";
 
-const UNSPLASH_API_ID = "798bf61f1ae0321ef02184da2c3ad42c5c0ab2b84561af0e20aa536d2337c051";
+const UNSPLASH_API_ID = "a7d6cc6f5ce74fcf56703608563d852c6f7b110a82b1e10cf58e0ead897cc223";
 var UNSPLASH_collection = 947821;
+var UNSPLASH_morning_collection = 1125083;
+var UNSPLASH_afternoon_collection = 1125084;
+var UNSPLASH_evening_collection = 1125086;
+var UNSPLASH_night_collection = 1125088;
+
+
 
 var currentImage = 0;
 var processing = false;
@@ -10,8 +16,8 @@ window.onload = function(){
 	//console.log(Unsplash);
 	console.log("page ready");
 	window.unsplash = new Unsplash({
-	  applicationId: "798bf61f1ae0321ef02184da2c3ad42c5c0ab2b84561af0e20aa536d2337c051",
-	  secret: "7831f41a0967afab102b16d5f07b85a03634a9112fd8766689b8a194a530b859",
+	  applicationId: UNSPLASH_API_ID,
+	  secret: "d68c225884c2ac12e27d0e6b8e2ced01780bdebad648aed60fde1ad4cd743b0f",
 	  callbackUrl: "https://manak.github.io/fruumo-wallpaper-picker/"
 	});
 
@@ -38,17 +44,59 @@ window.onload = function(){
 	fetchWallpaper();
 
 	document.addEventListener('keyup', function(e){
-		if(e.key == "y" && processing == false){
+		if(e.key == "m" && processing == false){
 			processing = true;
 			unsplash.collections.addPhotoToCollection(UNSPLASH_collection, currentImage)
   			.then(toJson)
   			.then(json => {
-  				processing = false;
   				fetchWallpaper();
+  				unsplash.collections.addPhotoToCollection(UNSPLASH_morning_collection, currentImage)
+	  			.then(toJson)
+	  			.then(json => {
+	  				processing = false;
+	  			});
   			});
-
+		}
+		if(e.key == "a" && processing == false){
+			processing = true;
+			unsplash.collections.addPhotoToCollection(UNSPLASH_collection, currentImage)
+  			.then(toJson)
+  			.then(json => {
+  				fetchWallpaper();
+  				unsplash.collections.addPhotoToCollection(UNSPLASH_afternoon_collection, currentImage)
+	  			.then(toJson)
+	  			.then(json => {
+	  				processing = false;
+	  			});
+  			});
+		}
+		if(e.key == "e" && processing == false){
+			processing = true;
+			unsplash.collections.addPhotoToCollection(UNSPLASH_collection, currentImage)
+  			.then(toJson)
+  			.then(json => {
+  				fetchWallpaper();
+  				unsplash.collections.addPhotoToCollection(UNSPLASH_evening_collection, currentImage)
+	  			.then(toJson)
+	  			.then(json => {
+	  				processing = false;
+	  			});
+  			});
 		}
 		if(e.key == "n" && processing == false){
+			processing = true;
+			unsplash.collections.addPhotoToCollection(UNSPLASH_collection, currentImage)
+  			.then(toJson)
+  			.then(json => {
+  				fetchWallpaper();
+  				unsplash.collections.addPhotoToCollection(UNSPLASH_night_collection, currentImage)
+	  			.then(toJson)
+	  			.then(json => {
+	  				processing = false;
+	  			});
+  			});
+		}
+		if(e.key == "x" && processing == false){
 			processing = true;
 			fetchWallpaper();
 			processing = false;
